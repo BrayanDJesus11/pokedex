@@ -168,6 +168,7 @@ La configuración utilizada es la siguiente:
 {
   "globalHeaders": {
     "Content-Security-Policy": "default-src 'self' https: data: blob:; script-src 'self' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
     "X-Frame-Options": "DENY",
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
   },
@@ -186,13 +187,13 @@ La configuración utilizada es la siguiente:
 | Configuración | Función |
 |---|---|
 | `Content-Security-Policy` | Restringe las fuentes desde las que se cargan los recursos. |
+| `Strict-Transport-Security` | Establece HSTS por un año para reforzar el uso de conexiones HTTPS. |
 | `X-Frame-Options: DENY` | Impide que la aplicación se muestre dentro de un marco. |
 | `Permissions-Policy` | Restringe el acceso a la cámara, el micrófono y la geolocalización. |
 | `navigationFallback` | Permite que Angular gestione las rutas internas de la aplicación. |
 | `exclude` | Excluye determinados recursos estáticos de la regla de navegación. |
 
-Después de aplicar la configuración, se volvió a publicar la aplicación y se comprobó que las rutas internas funcionaran correctamente al actualizar la página.
-
+Después de aplicar la configuración, se volvió a publicar la aplicación y se comprobó que las rutas internas funcionaran correctamente al actualizar la página. Además, se realizó una auditoría con SSL Labs, en la que la aplicación obtuvo una calificación **A+**.
 ## ✅ Resultado final
 
 - Se descargó y probó localmente el proyecto Angular.
